@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
                            {
                            echo '<script> document.location="index.php";    </script>';
                            }
-                           
+                    // as per requirement      
                     //    if ($rbtn_bus=='' &&  $rbtn_personal=='')
                     //        {
                     //        echo "<script> alert ('Please select the account options');</script>";
