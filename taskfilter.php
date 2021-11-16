@@ -192,7 +192,7 @@
    <img style="border:none;background:#eee;float:right;cursor: pointer;margin:0px 40px 0px 0px;" alt="" src="images/Filters.svg" onclick="openfilter()" />
 </div>
 <br clear='all'/>
-<!-- <div class=sidenav1 id=sidenav1>
+ <!-- <div class=sidenav1 id=sidenav1>
    <label style="width:100px;float:left"> Filter by:</label> <a onclick="closefilter()"><img style="border:none;background:#fff;float:right;margin-right:10px" alt="" src="images/Close.svg" /></a><br/><br/>
    <select class="total_fields forminput" name="ForCompany" style="width:200px">
       <?php  $i=0; 
@@ -270,8 +270,8 @@
    </div>
    <br clear="all"/><br clear="all"/>
    <input type=submit name="btnFilter"  value="Filter" style="margin-left:20px;height:32px;width:100px" class='btn btn-default' />
-   </div> -->
-<div class=sidenav1 id=sidenav1>
+   </div> --> 
+ <div class=sidenav1 id=sidenav1>
 <div class="row shadow p-3 bg-white rounded">
    <div class="col-md-6">
       <a onclick="closefilter()" class="fl times_a"><i class="fas fa-times"></i></a> 
@@ -280,7 +280,18 @@
       </label>
    </div>
    <div class="col-md-6">
-      <button type="submit" name="btnFilter" class="fr btn-save">Save</button>
+    <form method="post">
+          <button type="button" name="btnFilter" onclick="sendfilterdata()" class="fr btn-save">Save</button>
+          <input type="hidden" name="AddNewBtnClick">
+          <input type="hidden" name="ViewListForFD">
+          <input type="hidden" name="ForCompany">
+          <input type="hidden" name="MainGroup">
+          <input type="hidden" name="SubGroup">
+          <input type="hidden" name="ForRefUSR">
+          <input type="hidden" name="ForTaskTag">
+          <input type="hidden" name="CountCells" value="5">
+    </form>
+     
    </div>
 </div>
 <div class="contanier_row">
@@ -337,12 +348,12 @@
              
              if ($ForCompany == $valueof) {  ?>
       <div class="checkbox_div">
-      <input type="checkbox" class="companybox" id="company-<?=$i?>" name="ForCompany[]" value="<?php echo $valueof; ?>" checked>
+      <input type="checkbox" class="companybox" id="company-<?=$i?>" name="Company[]" value="<?php echo $valueof; ?>" checked>
       <label for="company-<?=$i?>"> <?php echo $AllCompanyCode_arr[$i][2] ?></label>
       </div>
       <?php } else{ ?>    
       <div class="checkbox_div">
-      <input type="checkbox" class="companybox" id="company-<?=$i?>" name="ForCompany[]" value="<?php echo $valueof; ?>" >
+      <input type="checkbox" class="companybox" id="company-<?=$i?>" name="Company[]" value="<?php echo $valueof; ?>" >
       <label for="company-<?=$i?>"> <?php echo $AllCompanyCode_arr[$i][2] ?></label>
       </div>
       <?php  }  $i++; } ?>
@@ -360,12 +371,12 @@
              $valueof= $AllTaskMainGroups_arr[$i][0] ;
              if ($MainGroup == $valueof) {  ?>
       <div class="checkbox_div">
-      <input type="checkbox" class="mainbox" id="maintask-<?=$i?>" name="MainGroup[]" value="<?php echo $valueof; ?>" checked>
+      <input type="checkbox" class="mainbox" id="maintask-<?=$i?>" name="Main[]" value="<?php echo $valueof; ?>" checked>
       <label for="maintask-<?=$i?>"> <?php echo $AllTaskMainGroups_arr[$i][1] ?></label>
       </div>
       <?php } else{ ?>    
       <div class="checkbox_div">
-      <input type="checkbox" class="mainbox" id="maintask-<?=$i?>" name="MainGroup[]" value="<?php echo $valueof; ?>">
+      <input type="checkbox" class="mainbox" id="maintask-<?=$i?>" name="Main[]" value="<?php echo $valueof; ?>">
       <label for="maintask-<?=$i?>"> <?php echo $AllTaskMainGroups_arr[$i][1] ?></label>
       </div>
       <?php  }  $i++; } ?>
@@ -385,12 +396,12 @@
              $valueof= $SubGroupsOfMain_arr[$i][0] ;
              if ($SubGroup == $valueof) {  ?>
       <div class="checkbox_div">
-      <input type="checkbox" class="subbox" id="subtask-<?=$i?>" name="SubGroup[]" value="<?php echo $valueof; ?>" checked>
+      <input type="checkbox" class="subbox" id="subtask-<?=$i?>" name="Sub[]" value="<?php echo $valueof; ?>" checked>
       <label for="subtask-<?=$i?>"> <?php echo $SubGroupsOfMain_arr[$i][1] ?></label>
       </div>
       <?php } else{ ?>    
       <div class="checkbox_div">
-      <input type="checkbox" class="subbox" id="subtask-<?=$i?>" name="SubGroup[]" value="<?php echo $valueof; ?>">
+      <input type="checkbox" class="subbox" id="subtask-<?=$i?>" name="Sub[]" value="<?php echo $valueof; ?>">
       <label for="subtask-<?=$i?>"> <?php echo $SubGroupsOfMain_arr[$i][1] ?></label>
       </div>
       <?php  }  $i++; } ?>
@@ -407,13 +418,13 @@
           
           if ($ForRefUSR == $valueof) {  ?>
             <div class="checkbox_div">
-      <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" name="ForRefUSR[]" value="<?php echo $valueof; ?>" checked>
+      <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" name="ForUSR[]" value="<?php echo $valueof; ?>" checked>
       <label for="assignto-<?=$i?>"> <?php echo $UserCodeName_arr[$i][1] ?></label>
       </div>
      
       <?php } else{ ?>    
       <div class="checkbox_div">
-      <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" name="ForRefUSR[]" value="<?php echo $valueof; ?>">
+      <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" name="ForUSR[]" value="<?php echo $valueof; ?>">
       <label for="assignto-<?=$i?>"> <?php echo $UserCodeName_arr[$i][1] ?></label>
       </div>
       <?php  }  $i++; } ?>
@@ -431,13 +442,13 @@
           
           if ($ForTaskTag == $valueof) {  ?>
             <div class="checkbox_div">
-              <input type="checkbox" class="tagbox" id="tags-<?=$i?>" name="ForTaskTag[]" value="<?php echo $valueof; ?>" checked>
+              <input type="checkbox" class="tagbox" id="tags-<?=$i?>" name="Tag[]" value="<?php echo $valueof; ?>" checked>
               <label for="tags-<?=$i?>"> <?php echo $AllTasksTagList_arr[$i][0] ?></label>
             </div>
       
       <?php } else{ ?>    
       <div class="checkbox_div">
-              <input type="checkbox" class="tagbox" id="tags-<?=$i?>" name="ForTaskTag[]" value="<?php echo $valueof; ?>">
+              <input type="checkbox" class="tagbox" id="tags-<?=$i?>" name="Tag[]" value="<?php echo $valueof; ?>">
               <label for="tags-<?=$i?>"> <?php echo $AllTasksTagList_arr[$i][0] ?></label>
             </div>
       <?php  }  $i++; } ?>
@@ -449,15 +460,15 @@
       </div>
       <div>
             <div class="checkbox_div">
-              <input type="checkbox" class="subbox" id="chkViewCompleted" name="chkViewCompleted" value="YES">
-              <label for="chkViewCompleted">&nbsp;&nbsp;View Completed &nbsp;</label>
+              <input type="checkbox" class="subbox" id="ViewCompleted" name="ViewCompleted" value="YES">
+              <label for="ViewCompleted">&nbsp;&nbsp;View Completed &nbsp;</label>
           </div>
       </div>
       </div>
       </div>
       </div>
    </div>
-</div>
+</div> 
 <script type="text/javascript">
    function changecontentpart(val){
        $(".li_button").removeClass("active");
@@ -493,6 +504,10 @@
        $(".mainbox").prop('checked',false);
        $(".assignbox").prop('checked',false);
        $(".completebox").prop('checked',false);
+   }
+
+   function sendfilterdata(){
+
    }
 </script>
 <!-- wrapper -->
