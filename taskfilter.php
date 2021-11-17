@@ -1,4 +1,31 @@
+
+<?php 
+if($_POST['btntaskadd']) {
+$sTaskName= $_POST['task'];
+$ForCompany=$_POST['company'];
+$TaskDescription=$_POST['descr'];
+//$TaskMainGroup=$_POST['TaskMainGroup'];
+//$TaskSubGroup=$_POST['TaskSubGroup'];
+
+$query3="INSERT INTO `tTasks`(`TaskMainGroup`, `TaskSubGroup`, `TaskGroup`,  `TaskTitle`, `Status`, `Priority`, `CreatedBy`, `CreatedDateTime`) 
+                              VALUES ( '0',    '0',  '0', '$sTaskName',  'ACT', 'P3', '$id', '$currdatetime' ) " ;
+$sql3 = mysqli_query($mysqli, $query3);
+$sTRecRef= $mysqli->insert_id;
+
+$query4="INSERT INTO `tSchedule`(`TRecRef`, `TaskDescription`, `ForCoRecRef`,  `PrivateTask`,  `StartDate`,    `DueDate`,  `DueDays`, `RepeatSchedule`, `AssignDT`, `AssignedBy`) 
+                             VALUES ('$sTRecRef','$TaskDescription','$ForCompany', '0','$current_date','$current_date','1','', '$currdatetime','$id' ) " ;
+$sql4 = mysqli_query($mysqli, $query4);
+$NewRecID= $mysqli->insert_id;
+
+$query5="INSERT INTO `tCalendar`( `SRecRef`, `TRecRef`, `ForRefUSR` ,`cScheduleDate`, `cDueDate`) 
+                                 VALUES ('$NewRecID', '$sTRecRef' ,'$id','$current_date','$current_date' ) " ;
+$sql5 = mysqli_query($mysqli, $query5);
+    
+}
+?>
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+
 <style>
    #myInput{
    background-image:url('images/Search.svg');
@@ -181,6 +208,321 @@
    margin-left: 25px;
    width: 100%;
    }
+   #quickbox1{
+      width: 38%;
+   }
+   .card {
+  display: grid;
+    grid-template-rows: 1fr auto max-content;
+    width: 73%;
+    aspect-ratio: 1 / 1.5;
+    background: #fff;
+    border-radius: 0.5em;
+    overflow: hidden;
+    margin-top: 18px;
+    box-shadow: 0 1px 2px 0px rgb(0 0 0 / 20%), 0 2px 4px 0px rgb(0 0 0 / 20%), 0 4px 8px 0px rgb(0 0 0 / 20%), 0 8px 16px 0px rgb(0 0 0 / 7%), 0 16px 32px 0px rgb(0 0 0 / 13%), 0 32px 48px 0px rgb(0 0 0 / 20%);
+}
+
+.card-header {
+  display: grid;
+  position: relative;
+  overflow: hidden;
+}
+.card-header::before {
+  content: "";
+  position: absolute;
+  display: flex;
+  inset: 0;
+  background: url(https://cdn.pixabay.com/photo/2017/06/26/08/13/mockup-2443050_960_720.jpg)
+    center/cover;
+  transition: transform 300ms ease;
+}
+
+.card-header:hover::before {
+  transform: scale(1.2);
+  transition: transform 266ms linear;
+}
+
+.title {
+  text-align: center;
+  width: 12ch;
+  text-transform: uppercase;
+  font-weight: 800;
+  line-height: 1.2;
+  font-size: 2.6rem;
+  margin: auto;
+  -webkit-text-stroke: 1.5px #0005;
+  color: hsla(0, 100%, 100%, 0.8);
+  text-shadow: 2px 2px 1px #0001, 2px 3px 2px #0002, 3px 4px 3px #0003,
+    3px 5px 5px #0003, 4px 5px 7px #0004, 4px 6px 10px #0005;
+  transform: rotate(-10deg);
+}
+
+.title:first-letter {
+  color: hsla(0, 100%, 100%, 0.8);
+  text-shadow: 3px 3px 0px teal;
+  font-size: 1.5em;
+}
+.card-content {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+.card-content,
+.card-footer {
+  margin-inline: 1rem;
+}
+
+.card-footer {
+  align-self: end;
+  margin-block-end: 2rem;
+}
+
+.secondary-title {
+  width: max-content;
+  text-transform: capitalize;
+  font-weight: 400;
+  color: #444;
+  font-size: 1.6rem;
+  margin-block: 1rem 2rem;
+  position: relative;
+}
+
+.secondary-title::before {
+  content: "";
+  position: absolute;
+  display: inline-flex;
+  width: calc(100% + 0.5em);
+  top: 2.5rem;
+  border-bottom: 3px solid teal;
+}
+
+.text {
+  color: #0008;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  font-weight: 300;
+  max-width: 28ch;
+}
+
+
+.quick_content {
+    display: flex;
+    justify-content: center;
+}
+
+
+      .wrapper {
+        padding: 70px 14px;
+      }
+      /* title-start */
+      .wrapper .title h2 {
+        text-align: center;
+        font-size: 40px;
+        margin-bottom: 22px;
+      }
+      /* title-end */
+      /* p-one-start */
+      .wrapper .p-one p {
+        color: #95959d;
+        padding: 0 10px;
+        text-align: center;
+        font-size: 14px;
+        margin-bottom: 50px;
+      }
+      /* p-one-end */
+      /* inp-email-start */
+      .wrapper .inp {
+        position: relative;
+      }
+      .wrapper .inp {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .wrapper .inp select {
+        border: 0;
+        border: 1px solid #e0e3ff;
+        width: 100%;
+        outline: none;
+        height: 51px;
+        padding: 0 20px;
+        border-radius: 4px;
+      }
+      .wrapper .inp select:focus {
+        border: 1px solid #2028eb;
+      }
+
+      .wrapper .inp select::placeholder {
+        color: #a5a4ac;
+        font-size: 12px;
+      }
+      .wrapper .inp label.email {
+        position: absolute;
+        left: 12px;
+        top: -10px;
+        color: #95959d;
+      }
+
+      .wrapper .inp::before {
+        position: absolute;
+        content: "";
+        background-color: rgb(255, 255, 255);
+        left: 10px;
+        width: 80px;
+        height: 21px;
+        top: -10px;
+      }
+      .wrapper .inp i.email {
+        position: absolute;
+        right: 18px;
+        top: 17.5px;
+        font-size: 20px;
+        color: #cfcfd3;
+      }
+      .wrapper .inp .email-margin {
+        margin-bottom: 40px;
+      }
+
+      /* inp-email-end */
+      /* inp-pass-start */
+      .wrapper .inp label.pass {
+        position: absolute;
+        top: 80px;
+        left: 20px;
+        z-index: 2;
+        color: #95959d;
+      }
+      .wrapper .inp::after {
+        position: absolute;
+        content: "";
+        background-color: rgb(255, 255, 255);
+        left: 12px;
+        width: 87px;
+        height: 21px;
+        top: 79px;
+      }
+      .wrapper .inp i.lock {
+        position: absolute;
+        bottom: 15.3px;
+        right: 20px;
+        font-size: 20px;
+        color: #cfcfd3;
+      }
+
+      /* inp-pass-end */
+      /* btn-start */
+      .wrapper .button {
+        display: flex;
+        justify-content: center;
+      }
+      .wrapper .button .btn {
+        margin-top: 50px;
+        border: 0;
+        width: 100%;
+        height: 60px;
+        background-color: rgb(32, 40, 235);
+        color: #fff;
+        border-radius: 4px;
+        font-size: 16px;
+        margin-bottom: 26px;
+        cursor: pointer;
+      }
+      .wrapper .button .btn:hover {
+        box-shadow: 1px 1px 20px rgba(32, 40, 235, 0.2);
+      }
+
+      /* btn-end */
+      /* line-start */
+      .wrapper .line {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #f0f1ff;
+        line-height: 0.1em;
+        margin: 30px;
+        margin-bottom: 40px;
+        margin-left: 0%;
+      }
+      .wrapper .line span {
+        background: #fff;
+        padding: 0 10px;
+        color: #afafb5;
+        font-size: 14px;
+      }
+
+      /* line-end */
+      /* icon-wrapper-start */
+
+      .wrapper .icon-wrapper {
+        display: flex;
+        justify-content: space-between;
+        /* align-items: center; */
+      }
+      .wrapper .icon-wrapper .google,
+      .wrapper .icon-wrapper .facebook,
+      .wrapper .icon-wrapper .apple {
+        width: 100px;
+        height: 50px;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        font-size: 22px;
+        border: 1px solid #d9dcff;
+        margin-bottom: 30px;
+        cursor: pointer;
+      }
+      .wrapper .icon-wrapper .google:hover {
+        box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+      }
+      .wrapper .icon-wrapper .facebook:hover {
+        box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+      }
+      .wrapper .icon-wrapper .apple:hover {
+        box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;      }
+
+      /* icon-wrapper-end */
+      /* down-start */
+      .wrapper .down {
+        text-align: center;
+        font-size: 14px;
+      }
+      .wrapper .down span {
+        color: #b8b7be;
+      }
+      label.task_name {
+          position: absolute;
+          left: 12px;
+          top: -10px;
+          color: #95959d;
+      }
+      input#task_name {
+    border: 0;
+    border: 1px solid #e0e3ff;
+    width: 100%;
+    outline: none;
+    height: 51px;
+    padding: 0 20px;
+    border-radius: 4px;
+}
+ label.description {
+          position: absolute;
+          left: 12px;
+          top: -10px;
+          color: #95959d;
+      }
+      textarea {
+    border: 0;
+    border: 1px solid #e0e3ff;
+    width: 100%;
+    outline: none;
+    height: 200px;
+    padding: 0 20px;
+    border-radius: 4px;
+}
+
+      /* down-end */
+
 </style>
 <div class="maindiv" id="wrapper" style="margin:15px 0 0 16%;width:84%">
 <div>
@@ -188,10 +530,70 @@
 </div>
 <div style="width:38%;float:left;">&nbsp; </div>
 <div >
-   <input type=button id="myQuickTask" class='btn btn-default' title="Add New Task" value="Quick Task" style="font-family:'Open Sans';width:150px;height:32px;border-radius:25px;margin:0px 16px 0px 0px;" onclick="popup('popUpDiv','addtask','')"/>
+   <!-- <input type=button id="myQuickTask" class='btn btn-default' title="Add New Task" value="Quick Task" style="font-family:'Open Sans';width:150px;height:32px;border-radius:25px;margin:0px 16px 0px 0px;" onclick="popup('popUpDiv','addtask','')"/> -->
+   <input type=button id="myQuickTask" class='btn btn-default' title="Add New Task" value="Quick Task" style="font-family:'Open Sans';width:150px;height:32px;border-radius:25px;margin:0px 16px 0px 0px;" onclick="quickboxfilter()"/>
+   
    <img style="border:none;background:#eee;float:right;cursor: pointer;margin:0px 40px 0px 0px;" alt="" src="images/Filters.svg" onclick="openfilter()" />
 </div>
 <br clear='all'/>
+<div class=sidenav1 id=quickbox1>
+   <div class="row shadow p-3 bg-white rounded">
+   <div class="col-md-6">
+      <a onclick="quickboxclosefilter()" class="fl times_a"><i class="fas fa-times"></i></a> 
+      <label class="fl filter_label" > 
+      Quick Task
+      </label>
+   </div>
+   <div class="col-md-6">
+    <form method="post">
+          <button type="submit" name="btntaskadd"  class="fr btn-save">Save</button>
+        
+   </div>
+</div>
+<div class="contanier_row">
+   <div class="quick_content">
+        <main class="card">
+    
+
+    <article class="card-content">
+        <div class="wrapper">
+        
+        <div class="inp">
+             <label class="email" for="company"> Company*: </label>
+             <select id="company" name="company">
+                <?php  
+                           $maxcompanycode = sizeof($CompanyCode_arr);
+                           $i=0; 
+                           while($i<$maxcompanycode)
+                           {   
+                               $valueof= $CompanyCode_arr[$i][0] ;
+                               ?>    
+                                   <option value="<?php echo $valueof ?>"> <?php echo $CompanyCode_arr[$i][2] ?> </option>
+                           <?php  $i++; } ?>
+            </select>
+         </div>
+         <div class="inp" style="margin-top: 41px;">
+            <label class="task_name" for="task_name"> Task Name*: </label>
+            <input type="text" name="task" id="task_name" >
+        </div>
+        <div class="inp" style="margin-top: 41px;">
+            <label class="description" for="description"> Description*: </label>
+            <textarea name="descr" id="description" rows="5"></textarea>
+        </div>
+        </form> 
+       
+      </div>
+    </article>
+    <footer class="card-footer">
+      
+
+      </button>
+
+    </footer>
+  </main>
+   </div>
+</div>
+   </div>
  <!-- <div class=sidenav1 id=sidenav1>
    <label style="width:100px;float:left"> Filter by:</label> <a onclick="closefilter()"><img style="border:none;background:#fff;float:right;margin-right:10px" alt="" src="images/Close.svg" /></a><br/><br/>
    <select class="total_fields forminput" name="ForCompany" style="width:200px">

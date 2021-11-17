@@ -1602,6 +1602,13 @@
          function openfilter() {
              document.getElementById("sidenav1").style.display = "block";
          }
+
+         function quickboxclosefilter() {
+             document.getElementById("quickbox1").style.display = "none";
+         }
+         function quickboxfilter() {
+             document.getElementById("quickbox1").style.display = "block";
+         }
          //clock();
          
            function fnTypeFilterRow() {
