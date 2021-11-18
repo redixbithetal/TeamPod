@@ -1,4 +1,6 @@
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
 <?php 
 if($_POST['btntaskadd']) {
 $sTaskName= $_POST['task'];
@@ -38,8 +40,9 @@ $sql5 = mysqli_query($mysqli, $query5);
    background-repeat:no-repeat;
    }
    .sidenav1 {   
-   width: 61%;
-   padding-top: 0px;
+    width: 720px;
+    height: 900px;
+    padding-top: 0px;
    }
    .col-md-6{
    width: 50%;
@@ -51,38 +54,55 @@ $sql5 = mysqli_query($mysqli, $query5);
    .fr{
    float: right;
    }
-   .filter_label{
-   margin-left: 15px;
-   font-size: 22px;
-   font-weight: 700;
-   }
+   .filter_label {
+        margin-left: 15px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #333333;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    .filter_label_sidenav{
+        margin-left: 15px;
+        font-size: 18px;
+        font-weight: 600;
+        width: 49px;
+        height: 23px;
+        color: #333333;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
    .times_a{
-   margin-top: 5px;
-   font-size: 22px;
-   font-weight: 700;
-   margin-left: 15px;
+      margin-top: 5px;
+      font-size: 22px;
+      font-weight: normal;
+      margin-left: 15px;
+      width: 24px;
+      height: 24px;
    }
    .btn-save{
-   color: white;
-   background: #e74c3c;
-   border: 1px solid #e74c3c;
-   padding: 10px 30px;
-   border-radius: 35%;
-   font-size: 13px;
-   letter-spacing: 1px;
-   line-height: 15px;
-   border-radius: 40px;
-   transition: all 0.3s ease 0s;
+         color: white;
+         background: #e74c3c;
+         border: 1px solid #e74c3c;    
+         border-radius: 35%;
+         font-size: 14px;
+         font-weight: 600;
+         letter-spacing: 1px;
+         line-height: 15px;
+         width: 102px;
+         height: 32px;
+         border-radius: 24px;
+         transition: all 0.3s ease 0s;
+         font-family: 'Source Sans Pro', sans-serif;
    }
    .p-3 {
-   padding: 14px 10px 47px 12px;
+  /* padding: 14px 10px 47px 12px;*/
    }
    .mb-5, .my-5 {
    margin-bottom: 3rem!important;
    }
    .shadow {
-   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
-   }
+      box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+       }
    .rounded {
    border-radius: 0.25rem !important;
    }
@@ -90,13 +110,13 @@ $sql5 = mysqli_query($mysqli, $query5);
    background-color: #fff!important;
    }
    .field_filter{
-   width: 30%;
-   float: left;
-   height: 100vh;
-   border-right: 2px solid gray;
+       width: 216px;
+    float: left;
+    height: 900px;
+    border-right: 2px solid gray;
    }
    .fieks_content{
-   width: 70%;
+   width: 501px;
    float: right;
    background: #f2f2f2;
    height: 100vh;
@@ -105,40 +125,40 @@ $sql5 = mysqli_query($mysqli, $query5);
    .field_list{
    list-style: none;
    width: 100%;
-   margin-top: 40px;
    padding-left: 0px;
    }
    .contanier_row{
    height: 100vh;
    }
    .resetview{
-   color: #2e57a2;
-   float: left;
-   margin-left: 15px;
-   font-weight: 500;
-   margin-bottom: 25px;
+      color: #005a9e;
+      float: left;
+      margin-left: 15px;
+      font-weight: normal;
+      font-size: 14px;
+      font-family: 'Source Sans Pro';
+      margin-bottom: 25px;
    }
    .reset_view_div{
    font-size: 15px;
    float: left;
    width: 100%;
-   margin-top: 32px;
-   margin-left: 25px;
+   margin-top: 20px;
    }
    ul.field_list li {
    border-width: 1px;
-   margin: 0px 60px;
    font-weight: 600;
    }
    .li_button{
    background: none;
    border: none;
-   font-size: 18px;
+   font-size: 16px;
    border-width: 1px;
    font-weight: 600;
    border-bottom: 2px solid #ccc;
-   width: 100%;
-   padding: 18px;
+       width: 184px;
+    height: 48px;
+    padding: 14px;
    }
    .show{
    display: block;
@@ -148,8 +168,8 @@ $sql5 = mysqli_query($mysqli, $query5);
    }
    .active{        
    background: #eeeeee;
-   border: 1px solid green;
-   border-radius: 40px;
+   border: 1px solid #4b7902;
+   border-radius: 24px;
    transition: all 0.3s ease 0s;
    }
    .active_div{
@@ -209,15 +229,16 @@ $sql5 = mysqli_query($mysqli, $query5);
    width: 100%;
    }
    #quickbox1{
-      width: 38%;
+      width: 30%;
    }
    .card {
   display: grid;
     grid-template-rows: 1fr auto max-content;
-    width: 73%;
+        width: 504px;
+    height: 804px;
     aspect-ratio: 1 / 1.5;
     background: #fff;
-    border-radius: 0.5em;
+    border-radius: 24px;
     overflow: hidden;
     margin-top: 18px;
     box-shadow: 0 1px 2px 0px rgb(0 0 0 / 20%), 0 2px 4px 0px rgb(0 0 0 / 20%), 0 4px 8px 0px rgb(0 0 0 / 20%), 0 8px 16px 0px rgb(0 0 0 / 7%), 0 16px 32px 0px rgb(0 0 0 / 13%), 0 32px 48px 0px rgb(0 0 0 / 20%);
@@ -308,11 +329,14 @@ $sql5 = mysqli_query($mysqli, $query5);
 .quick_content {
     display: flex;
     justify-content: center;
+    width: 576px;
+    color: #f2f2f2;
+    height: 900px;
 }
 
 
       .wrapper {
-        padding: 70px 14px;
+        padding: 25px 14px;
       }
       /* title-start */
       .wrapper .title h2 {
@@ -357,10 +381,13 @@ $sql5 = mysqli_query($mysqli, $query5);
         font-size: 12px;
       }
       .wrapper .inp label.email {
-        position: absolute;
-        left: 12px;
-        top: -10px;
-        color: #95959d;
+             position: absolute;
+             left: 12px;
+             top: -10px;
+                 color: #737373;
+    font-size: 12px;
+    font-family: 'Source Sans Pro';
+    font-weight: normal;
       }
 
       .wrapper .inp::before {
@@ -368,8 +395,8 @@ $sql5 = mysqli_query($mysqli, $query5);
         content: "";
         background-color: rgb(255, 255, 255);
         left: 10px;
-        width: 80px;
-        height: 21px;
+            width: 54px;
+    height: 21px;
         top: -10px;
       }
       .wrapper .inp i.email {
@@ -494,7 +521,11 @@ $sql5 = mysqli_query($mysqli, $query5);
           position: absolute;
           left: 12px;
           top: -10px;
-          color: #95959d;
+             color: #737373;
+    font-size: 12px;
+    font-family: 'Source Sans Pro';
+    font-weight: normal;
+
       }
       input#task_name {
     border: 0;
@@ -504,12 +535,19 @@ $sql5 = mysqli_query($mysqli, $query5);
     height: 51px;
     padding: 0 20px;
     border-radius: 4px;
+    color: #333333;
+    font-size: 16px;
+    font-family: 'Source Sans Pro';
+    font-weight: normal;
 }
  label.description {
           position: absolute;
           left: 12px;
           top: -10px;
-          color: #95959d;
+           color: #737373;
+    font-size: 12px;
+    font-family: 'Source Sans Pro';
+    font-weight: normal;
       }
       textarea {
     border: 0;
@@ -517,8 +555,12 @@ $sql5 = mysqli_query($mysqli, $query5);
     width: 100%;
     outline: none;
     height: 200px;
-    padding: 0 20px;
+    padding: 8px 20px;
     border-radius: 4px;
+    color: #333333;
+    font-size: 16px;
+    font-family: 'Source Sans Pro';
+    font-weight: normal;
 }
 
       /* down-end */
@@ -537,14 +579,14 @@ $sql5 = mysqli_query($mysqli, $query5);
 </div>
 <br clear='all'/>
 <div class=sidenav1 id=quickbox1>
-   <div class="row shadow p-3 bg-white rounded">
-   <div class="col-md-6">
+   <div class="row shadow p-3 bg-white rounded" style="width: 576px;height: 48px;">
+   <div class="col-md-6" style="margin-top: 5px;">
       <a onclick="quickboxclosefilter()" class="fl times_a"><i class="fas fa-times"></i></a> 
       <label class="fl filter_label" > 
       Quick Task
       </label>
    </div>
-   <div class="col-md-6">
+   <div class="col-md-6" style="margin-top: 5px;">
     <form method="post">
           <button type="submit" name="btntaskadd"  class="fr btn-save">Save</button>
         
@@ -559,7 +601,7 @@ $sql5 = mysqli_query($mysqli, $query5);
         <div class="wrapper">
         
         <div class="inp">
-             <label class="email" for="company"> Company*: </label>
+             <label class="email" for="company"> Company*</label>
              <select id="company" name="company">
                 <?php  
                            $maxcompanycode = sizeof($CompanyCode_arr);
@@ -572,12 +614,12 @@ $sql5 = mysqli_query($mysqli, $query5);
                            <?php  $i++; } ?>
             </select>
          </div>
-         <div class="inp" style="margin-top: 41px;">
-            <label class="task_name" for="task_name"> Task Name*: </label>
+         <div class="inp" style="margin-top: 20px;">
+            <label class="task_name" for="task_name"> Task Name*</label>
             <input type="text" name="task" id="task_name" >
         </div>
-        <div class="inp" style="margin-top: 41px;">
-            <label class="description" for="description"> Description*: </label>
+        <div class="inp" style="margin-top: 20px;">
+            <label class="description" for="description"> Description*</label>
             <textarea name="descr" id="description" rows="5"></textarea>
         </div>
         </form> 
@@ -674,14 +716,14 @@ $sql5 = mysqli_query($mysqli, $query5);
    <input type=submit name="btnFilter"  value="Filter" style="margin-left:20px;height:32px;width:100px" class='btn btn-default' />
    </div> --> 
  <div class=sidenav1 id=sidenav1>
-<div class="row shadow p-3 bg-white rounded">
-   <div class="col-md-6">
+<div class="row shadow p-3 bg-white rounded" style="height: 48px;">
+   <div class="col-md-6" style="margin-top: 10px;">
       <a onclick="closefilter()" class="fl times_a"><i class="fas fa-times"></i></a> 
-      <label class="fl filter_label" > 
+      <label class="fl filter_label_sidenav" > 
       Filters
       </label>
    </div>
-   <div class="col-md-6">
+   <div class="col-md-6" style="margin-top: 10px;">
     <form method="post">
           <button type="button" name="btnFilter" onclick="sendfilterdata()" class="fr btn-save">Save</button>
           <input type="hidden" name="AddNewBtnClick">
