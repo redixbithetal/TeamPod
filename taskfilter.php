@@ -604,13 +604,13 @@ $sql5 = mysqli_query($mysqli, $query5);
              <label class="email" for="company"> Company*</label>
              <select id="company" name="company">
                 <?php  
-                           $maxcompanycode = sizeof($CompanyCode_arr);
+                           $maxcompanycode = sizeof($AllCompanyCode_arr);
                            $i=0; 
                            while($i<$maxcompanycode)
                            {   
-                               $valueof= $CompanyCode_arr[$i][0] ;
+                               $valueof= $AllCompanyCode_arr[$i][0] ;
                                ?>    
-                                   <option value="<?php echo $valueof ?>"> <?php echo $CompanyCode_arr[$i][2] ?> </option>
+                                   <option value="<?php echo $valueof ?>"> <?php echo $AllCompanyCode_arr[$i][2] ?> </option>
                            <?php  $i++; } ?>
             </select>
          </div>
@@ -785,6 +785,7 @@ $sql5 = mysqli_query($mysqli, $query5);
       <div class="reset_view_div" >
       <a href="javascript:void()" onclick="selectallbox('companybox')" class="resetview">Select all</a>
       </div>
+      <div>
       <?php  $i=0; 
          while($i<$maxcompanycode)
          {   
@@ -801,6 +802,7 @@ $sql5 = mysqli_query($mysqli, $query5);
       <label for="company-<?=$i?>"> <?php echo $AllCompanyCode_arr[$i][2] ?></label>
       </div>
       <?php  }  $i++; } ?>
+      </div>
       </div>
       <div id="main_li_div" class="hide div_1">
       <div class="reset_view_div" >
@@ -856,10 +858,11 @@ $sql5 = mysqli_query($mysqli, $query5);
       <a href="javascript:void()" onclick="selectallbox('assignbox')" class="resetview">Select all</a>
       </div>
       <div>
-        <?php   while($i<$maxusercodename)
+    <?php   
+     $i=0;
+    while($i<$maxusercodename)
       {   
           $valueof= $UserCodeName_arr[$i][0] ;
-          
           if ($ForRefUSR == $valueof) {  ?>
             <div class="checkbox_div">
       <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" name="ForUSR[]" value="<?php echo $valueof; ?>" checked>

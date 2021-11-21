@@ -1,6 +1,5 @@
 <?php session_start();?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <?php
 error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 
@@ -15,9 +14,7 @@ error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 
         //   echo "<script> alert ('ID=$id / NAME=$loginame / Size=$SizeOfAL / $arrMyCo');</script>";
 
-include "../focinc/dbhands.php";
-
-
+include "dbhands.php";
 
     $AllUserCodeName_arr = array();             //---------------- Get all File Codes from database table then when require only show specific codes in select statement
          $query11="SELECT `RefUSR`, `FirstName`, `LastName` FROM `tUser` WHERE `Status`='ACT' ORDER BY `FirstName`, `LastName` "; 
@@ -59,11 +56,6 @@ include "../focinc/dbhands.php";
                             }
                             return '';
                         }        
-
-
-    
-
-        
         
     $CompanyCode_arr = array();             //---------------- Get all File Codes from database table then when require only show specific codes in select statement
 
@@ -81,7 +73,6 @@ include "../focinc/dbhands.php";
             }
 	$maxcompanycode = sizeof($CompanyCode_arr);
 
-        
     $AllTaskGroups_arr = array();             //---------------- Get all File Codes from database table then when require only show specific codes in select statement
         $query11="SELECT * FROM `tTasks` WHERE `Status`='ACT' GROUP BY `TaskGroup` ORDER BY `TaskGroup` "; 
         $sql11 = mysqli_query($mysqli, $query11);
@@ -165,10 +156,6 @@ include "../focinc/dbhands.php";
                             return $SubGroupsOfMain_arr;
                         }        
 
-        
-        
-        
-
 $AllTasksTagList_arr = array();  
     $query1="SELECT DISTINCT `TagTitle` FROM `tTaskTags` where RefUSR='$id' ORDER BY `TagTitle` ";
     $sql1 = mysqli_query($mysqli, $query1);
@@ -179,8 +166,7 @@ $AllTasksTagList_arr = array();
         $i++;
     } 
     $maxtasktags = sizeof($AllTasksTagList_arr);
-    
-        
+
         
 
 
@@ -288,10 +274,5 @@ function convertDecimal2HM($dec)
     {
         return (strlen($num) < 2) ? "0{$num}" : $num;
     }
-
-
-
-
-
 ?>
 

@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
                                     $sql12 = mysqli_query($mysqli, $query12);
                                 //----------------- END Activity Log ---------------------
                                        
-                               if($UserStatus!='A')
+                               if($UserStatus!='ACT')
                                {
                                    echo '<script> alert ("Your Account is not verified/ activated, please activate and try to login");</script>';
                                    echo '<script> document.location="index.php";    </script>';
@@ -506,10 +506,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
          		   
          		    
          		}
-         		
-         		
-         		
-         		
          	});
                                            
          }

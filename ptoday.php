@@ -160,14 +160,11 @@ else {
         {
         $UserCodeName_arr[$i][0]=$row11['RefUSR'];
         $UserCodeName_arr[$i][1]=$row11['FirstName'].' '.$row11['LastName'];
-        //echo ' Yes '.$UserCodeName_arr[$i][0];
+        //echo ' Yes '.$UserCodeName_arr[$i][1];
         $i++;
         }
     
 	$maxusercodename = sizeof($UserCodeName_arr);
-
-
-        
     $UserNameOnly_arr = array(); 
     $i=0;
     $query11="SELECT t1.RefUSR, t1.FirstName,t1.LastName FROM `tUser` AS t1, `tUserAccessLevels` AS t2  

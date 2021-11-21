@@ -3,8 +3,7 @@
    error_reporting(E_ALL ^ E_NOTICE);
    
    $MenuSelect = basename($_SERVER['PHP_SELF']); /* Returns The Current PHP File Name */
-   include "dbhands.php";
-   include "i_functions.php"; 
+ 
    
    if (isset($_COOKIE["id"]))
    {
@@ -18,6 +17,9 @@
    {
        $CanSystemAdmin = $_COOKIE["CanSystemAdmin"];
    }
+   
+   include "dbhands.php";
+   include "i_functions.php";
    
    $divmenuMTODAY = "style='margin-top:-20px' ";
    //if ($MenuSelect==='ptoday.php')     {$divmenuMTODAY="style='background-color:#5DADE2;' "; }
