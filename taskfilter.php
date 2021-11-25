@@ -631,13 +631,13 @@ button.fr.btn-save {
                         <select id="company_quickbox" name="company" >
                            <option value="">----- Select -----</option>
                            <?php  
-                              $maxcompanycode = sizeof($CompanyCode_arr);
+                              $maxcompanycode = sizeof($AllCompanyCode_arr);
                               $i=0; 
                               while($i<$maxcompanycode)
                               {   
-                                  $valueof= $CompanyCode_arr[$i][0] ;
+                                  $valueof= $AllCompanyCode_arr[$i][0] ;
                                   ?>    
-                           <option value="<?php echo $valueof ?>"> <?php echo $CompanyCode_arr[$i][2] ?> </option>
+                           <option value="<?php echo $valueof ?>"> <?php echo $AllCompanyCode_arr[$i][2] ?> </option>
                            <?php  $i++; } ?>
                         </select>
                      </div>
@@ -762,7 +762,7 @@ button.fr.btn-save {
    </div>
 </div>
 <div class="contanier_row">
-   <div class="col-md-4 field_filter">
+    <div class="col-md-4 field_filter">
       <div class="reset_view_div" >
          <a href="javascript:void()" onclick="resetbox()" class="resetview">Reset all</a>
       </div>
@@ -801,8 +801,8 @@ button.fr.btn-save {
          <button class="li_button" type="button" id="view_li" onclick="changecontentpart('view_li')"><span class="fl">View Completed<span id="select_view_li"></span></span><div class="li_button_div" id="view_li_round"></button>
          </li>
       </ul>
-      </div>
-      <div class="col-md-9 fieks_content">
+    </div>
+    <div class="col-md-9 fieks_content">
       <div id="com_li_div" class="div_1" >
       <div class="reset_view_div" >
       <a href="javascript:void()" onclick="selectallbox('companybox','Company','com_li')" class="resetview">Select all</a>
@@ -879,7 +879,7 @@ button.fr.btn-save {
       <a href="javascript:void()" onclick="selectallbox('assignbox','ForUSR','assign_li')" class="resetview">Select all</a>
       </div>
       <div>
-        <?php   while($i<$maxusercodename)
+        <?php   $i=0;while($i<$maxusercodename)
       {   
           $valueof= $UserCodeName_arr[$i][0] ;
           
