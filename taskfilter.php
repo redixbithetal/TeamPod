@@ -110,13 +110,13 @@ $sql5 = mysqli_query($mysqli, $query5);
    background-color: #fff!important;
    }
    .field_filter{
-       width: 216px;
+       width: 260px;
     float: left;
     height: 900px;
     border-right: 2px solid gray;
    }
    .fieks_content{
-   width: 501px;
+   width: 458px;
    float: right;
    background: #f2f2f2;
    height: 100vh;
@@ -156,7 +156,7 @@ $sql5 = mysqli_query($mysqli, $query5);
    border-width: 1px;
    font-weight: 600;
    border-bottom: 2px solid #ccc;
-       width: 184px;
+       width: 215px;
     height: 48px;
     padding: 14px;
    }
@@ -168,7 +168,7 @@ $sql5 = mysqli_query($mysqli, $query5);
    }
    .active{        
    background: #eeeeee;
-   border: 1px solid #4b7902;
+   border: 2px solid #4b7902;
    border-radius: 24px;
    transition: all 0.3s ease 0s;
    }
@@ -197,8 +197,8 @@ $sql5 = mysqli_query($mysqli, $query5);
    border: 0.1em solid #f7d991;
    border-radius: 0.2em;
    display: inline-block;
-   width: 1em;
-   height: 1em;
+   width: 24px;
+   height: 24px;
    padding-left: 0.2em;
    padding-bottom: 0.3em;
    margin-right: 10px;
@@ -371,9 +371,21 @@ $sql5 = mysqli_query($mysqli, $query5);
         height: 51px;
         padding: 0 20px;
         border-radius: 4px;
+            background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20448%22%20enable-background%3D%22new%200%200%20256%20448%22%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E.arrow%7Bfill%3A%23424242%3B%7D%3C%2Fstyle%3E%3Cpath%20class%3D%22arrow%22%20d%3D%22M255.9%20168c0-4.2-1.6-7.9-4.8-11.2-3.2-3.2-6.9-4.8-11.2-4.8H16c-4.2%200-7.9%201.6-11.2%204.8S0%20163.8%200%20168c0%204.4%201.6%208.2%204.8%2011.4l112%20112c3.1%203.1%206.8%204.6%2011.2%204.6%204.4%200%208.2-1.5%2011.4-4.6l112-112c3-3.2%204.5-7%204.5-11.4z%22%2F%3E%3C%2Fsvg%3E%0A);
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+    border-radius: 2px;
+    /* border: none; */
+    /* color: #ffffff; */
+    padding: 10px 30px 10px 10px;
+    outline: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
       }
       .wrapper .inp select:focus {
-        border: 1px solid #2028eb;
+        border: 1px solid #e0e3ff;
       }
 
       .wrapper .inp select::placeholder {
@@ -428,6 +440,8 @@ $sql5 = mysqli_query($mysqli, $query5);
         height: 21px;
         top: 79px;
       }
+
+
       .wrapper .inp i.lock {
         position: absolute;
         bottom: 15.3px;
@@ -551,6 +565,7 @@ $sql5 = mysqli_query($mysqli, $query5);
       }
       textarea {
     border: 0;
+    resize: vertical;
     border: 1px solid #e0e3ff;
     width: 100%;
     outline: none;
@@ -562,6 +577,21 @@ $sql5 = mysqli_query($mysqli, $query5);
     font-family: 'Source Sans Pro';
     font-weight: normal;
 }
+button.fr.btn-save {
+    margin-right: 15px;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
 
       /* down-end */
 
@@ -579,63 +609,56 @@ $sql5 = mysqli_query($mysqli, $query5);
 </div>
 <br clear='all'/>
 <div class=sidenav1 id=quickbox1>
-   <div class="row shadow p-3 bg-white rounded" style="width: 576px;height: 48px;">
-   <div class="col-md-6" style="margin-top: 5px;">
-      <a onclick="quickboxclosefilter()" class="fl times_a"><i class="fas fa-times"></i></a> 
-      <label class="fl filter_label" > 
-      Quick Task
-      </label>
-   </div>
-   <div class="col-md-6" style="margin-top: 5px;">
-    <form method="post">
-          <button type="submit" name="btntaskadd"  class="fr btn-save">Save</button>
-        
-   </div>
-</div>
-<div class="contanier_row">
-   <div class="quick_content">
-        <main class="card">
-    
-
-    <article class="card-content">
-        <div class="wrapper">
-        
-        <div class="inp">
-             <label class="email" for="company"> Company*</label>
-             <select id="company" name="company">
-                <?php  
-                           $maxcompanycode = sizeof($AllCompanyCode_arr);
-                           $i=0; 
-                           while($i<$maxcompanycode)
-                           {   
-                               $valueof= $AllCompanyCode_arr[$i][0] ;
-                               ?>    
-                                   <option value="<?php echo $valueof ?>"> <?php echo $AllCompanyCode_arr[$i][2] ?> </option>
-                           <?php  $i++; } ?>
-            </select>
+  
+      <div class="row shadow p-3 bg-white rounded" style="width: 576px;height: 48px;">
+         <div class="col-md-6" style="margin-top: 5px;">
+            <a onclick="quickboxclosefilter()" class="fl times_a"><i class="fas fa-times"></i></a> 
+            <label class="fl filter_label" > 
+            Quick Task
+            </label>
          </div>
-         <div class="inp" style="margin-top: 20px;">
-            <label class="task_name" for="task_name"> Task Name*</label>
-            <input type="text" name="task" id="task_name" >
-        </div>
-        <div class="inp" style="margin-top: 20px;">
-            <label class="description" for="description"> Description*</label>
-            <textarea name="descr" id="description" rows="5"></textarea>
-        </div>
-        </form> 
-       
+         <div class="col-md-6" style="margin-top: 5px;">
+            <button type="button" onclick="submitquickbox()"  name="btntaskadd"  class="fr btn-save">Save</button>
+         </div>
       </div>
-    </article>
-    <footer class="card-footer">
-      
-
-      </button>
-
-    </footer>
-  </main>
-   </div>
+      <div class="contanier_row">
+         <div class="quick_content">
+            <main class="card">
+               <article class="card-content">
+                  <div class="wrapper">
+                     <div class="inp">
+                        <label class="email" for="company_quickbox"> Company*</label>
+                        <select id="company_quickbox" name="company" >
+                           <option value="">----- Select -----</option>
+                           <?php  
+                              $maxcompanycode = sizeof($AllCompanyCode_arr);
+                              $i=0; 
+                              while($i<$maxcompanycode)
+                              {   
+                                  $valueof= $AllCompanyCode_arr[$i][0] ;
+                                  ?>    
+                           <option value="<?php echo $valueof ?>"> <?php echo $AllCompanyCode_arr[$i][2] ?> </option>
+                           <?php  $i++; } ?>
+                        </select>
+                     </div>
+                     <div class="inp" style="margin-top: 20px;">
+                        <label class="task_name" for="task_name"> Task Name*</label>
+                        <input type="text" name="task" id="task_name"  >
+                     </div>
+                     <div class="inp" style="margin-top: 20px;">
+                        <label class="description" for="description"> Description</label>
+                        <textarea name="descr" id="description" rows="15"></textarea>
+                     </div>
+                  </div>
+               </article>
+               <footer class="card-footer">
+                  
+               </footer>
+            </main>
+         </div>
+      </div>
+  
 </div>
-   </div>
  <!-- <div class=sidenav1 id=sidenav1>
    <label style="width:100px;float:left"> Filter by:</label> <a onclick="closefilter()"><img style="border:none;background:#fff;float:right;margin-right:10px" alt="" src="images/Close.svg" /></a><br/><br/>
    <select class="total_fields forminput" name="ForCompany" style="width:200px">
@@ -739,53 +762,52 @@ $sql5 = mysqli_query($mysqli, $query5);
    </div>
 </div>
 <div class="contanier_row">
-   <div class="col-md-4 field_filter">
+    <div class="col-md-4 field_filter">
       <div class="reset_view_div" >
          <a href="javascript:void()" onclick="resetbox()" class="resetview">Reset all</a>
       </div>
       <ul class="field_list">
          <li>
             <button class="li_button active" type="button" id="com_li" onclick="changecontentpart('com_li')">
-               <span class="fl">Company(4)</span>
+               <span class="fl">Company <span id="select_com_li"></span></span>
                <div class="active_div li_button_div" id="com_li_round"></div>
             </button>
          </li>
          <li>
             <button class="li_button" type="button" id="main_li" onclick="changecontentpart('main_li')">
-               <span class="fl">Main Task Groups</span> 
+               <span class="fl">Main Task Groups <span id="select_main_li"></span></span> 
                <div class="li_button_div" id="main_li_round"></div>
             </button>
          </li>
          <li>
             <button class="li_button" type="button" id="sub_li" onclick="changecontentpart('sub_li')">
-               <span class="fl">Sub Task Groups</span> 
+               <span class="fl">Sub Task Groups<span id="select_sub_li"></span></span> 
                <div class="li_button_div" id="sub_li_round"></div>
             </button>
          </li>
          <li>
             <button class="li_button" type="button" id="assign_li" onclick="changecontentpart('assign_li')">
-               <span class="fl">Assigned to</span> 
+               <span class="fl">Assigned to<span id="select_assign_li"></span></span> 
                <div class="li_button_div" id="assign_li_round"></div>
             </button>
          </li>
          <li>
             <button class="li_button" type="button" id="tag_li" onclick="changecontentpart('tag_li')">
-               <span class="fl">Tags</span> 
-               <div>
-                  </div class="li_button_div" id="tag_li_round">
+               <span class="fl">Tags<span id="select_tag_li"></span></span> 
+               <div class="li_button_div" id="tag_li_round"></div>
             </button>
          </li>
          <li>
-         <button class="li_button" type="button" id="view_li" onclick="changecontentpart('view_li')"><span class="fl">View Completed</span><div class="li_button_div" id="view_li_round"></button>
+         <button class="li_button" type="button" id="view_li" onclick="changecontentpart('view_li')"><span class="fl">View Completed<span id="select_view_li"></span></span><div class="li_button_div" id="view_li_round"></button>
          </li>
       </ul>
-      </div>
-      <div class="col-md-9 fieks_content">
+    </div>
+    <div class="col-md-9 fieks_content">
       <div id="com_li_div" class="div_1" >
       <div class="reset_view_div" >
-      <a href="javascript:void()" onclick="selectallbox('companybox')" class="resetview">Select all</a>
+      <a href="javascript:void()" onclick="selectallbox('companybox','Company','com_li')" class="resetview">Select all</a>
       </div>
-      <div>
+      
       <?php  $i=0; 
          while($i<$maxcompanycode)
          {   
@@ -793,20 +815,19 @@ $sql5 = mysqli_query($mysqli, $query5);
              
              if ($ForCompany == $valueof) {  ?>
       <div class="checkbox_div">
-      <input type="checkbox" class="companybox" id="company-<?=$i?>" name="Company[]" value="<?php echo $valueof; ?>" checked>
+      <input type="checkbox" class="companybox" id="company-<?=$i?>" name="Company[]" value="<?php echo $valueof; ?>" onchange="countchecked('Company','com_li')" checked>
       <label for="company-<?=$i?>"> <?php echo $AllCompanyCode_arr[$i][2] ?></label>
       </div>
       <?php } else{ ?>    
       <div class="checkbox_div">
-      <input type="checkbox" class="companybox" id="company-<?=$i?>" name="Company[]" value="<?php echo $valueof; ?>" >
+      <input type="checkbox" class="companybox" id="company-<?=$i?>" name="Company[]" value="<?php echo $valueof; ?>" onchange="countchecked('Company','com_li')" >
       <label for="company-<?=$i?>"> <?php echo $AllCompanyCode_arr[$i][2] ?></label>
       </div>
       <?php  }  $i++; } ?>
       </div>
-      </div>
       <div id="main_li_div" class="hide div_1">
       <div class="reset_view_div" >
-      <a href="javascript:void()" onclick="selectallbox('mainbox')" class="resetview">Select all</a>
+      <a href="javascript:void()" onclick="selectallbox('mainbox','Main','main_li')" class="resetview">Select all</a>
       </div>
       <div>
       <?php  
@@ -817,12 +838,12 @@ $sql5 = mysqli_query($mysqli, $query5);
              $valueof= $AllTaskMainGroups_arr[$i][0] ;
              if ($MainGroup == $valueof) {  ?>
       <div class="checkbox_div">
-      <input type="checkbox" class="mainbox" id="maintask-<?=$i?>" name="Main[]" value="<?php echo $valueof; ?>" checked>
+      <input type="checkbox" class="mainbox" onchange="countchecked('Main','main_li')" id="maintask-<?=$i?>" name="Main[]" value="<?php echo $valueof; ?>" checked>
       <label for="maintask-<?=$i?>"> <?php echo $AllTaskMainGroups_arr[$i][1] ?></label>
       </div>
       <?php } else{ ?>    
       <div class="checkbox_div">
-      <input type="checkbox" class="mainbox" id="maintask-<?=$i?>" name="Main[]" value="<?php echo $valueof; ?>">
+      <input type="checkbox" class="mainbox" id="maintask-<?=$i?>" onchange="countchecked('Main','main_li')" name="Main[]" value="<?php echo $valueof; ?>">
       <label for="maintask-<?=$i?>"> <?php echo $AllTaskMainGroups_arr[$i][1] ?></label>
       </div>
       <?php  }  $i++; } ?>
@@ -830,7 +851,7 @@ $sql5 = mysqli_query($mysqli, $query5);
       </div>
       <div id="sub_li_div" class="hide div_1">
       <div class="reset_view_div" >
-      <a href="javascript:void()" onclick="selectallbox('subbox')" class="resetview">Select all</a>
+      <a href="javascript:void()" onclick="selectallbox('subbox','Sub','sub_li')" class="resetview">Select all</a>
       </div>
       <div>
       <?php  
@@ -842,12 +863,12 @@ $sql5 = mysqli_query($mysqli, $query5);
              $valueof= $SubGroupsOfMain_arr[$i][0] ;
              if ($SubGroup == $valueof) {  ?>
       <div class="checkbox_div">
-      <input type="checkbox" class="subbox" id="subtask-<?=$i?>" name="Sub[]" value="<?php echo $valueof; ?>" checked>
+      <input type="checkbox" class="subbox" onchange="countchecked('Sub','sub_li')" id="subtask-<?=$i?>" name="Sub[]" value="<?php echo $valueof; ?>" checked>
       <label for="subtask-<?=$i?>"> <?php echo $SubGroupsOfMain_arr[$i][1] ?></label>
       </div>
       <?php } else{ ?>    
       <div class="checkbox_div">
-      <input type="checkbox" class="subbox" id="subtask-<?=$i?>" name="Sub[]" value="<?php echo $valueof; ?>">
+      <input type="checkbox" class="subbox" id="subtask-<?=$i?>" onchange="countchecked('Sub','sub_li')" name="Sub[]" value="<?php echo $valueof; ?>">
       <label for="subtask-<?=$i?>"> <?php echo $SubGroupsOfMain_arr[$i][1] ?></label>
       </div>
       <?php  }  $i++; } ?>
@@ -855,23 +876,22 @@ $sql5 = mysqli_query($mysqli, $query5);
       </div>
       <div id="assign_li_div" class="hide div_1">
       <div class="reset_view_div" >
-      <a href="javascript:void()" onclick="selectallbox('assignbox')" class="resetview">Select all</a>
+      <a href="javascript:void()" onclick="selectallbox('assignbox','ForUSR','assign_li')" class="resetview">Select all</a>
       </div>
       <div>
-    <?php   
-     $i=0;
-    while($i<$maxusercodename)
+        <?php   $i=0;while($i<$maxusercodename)
       {   
           $valueof= $UserCodeName_arr[$i][0] ;
+          
           if ($ForRefUSR == $valueof) {  ?>
             <div class="checkbox_div">
-      <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" name="ForUSR[]" value="<?php echo $valueof; ?>" checked>
+      <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" onchange="countchecked('assignbox','assign_li')" name="ForUSR[]" value="<?php echo $valueof; ?>" checked>
       <label for="assignto-<?=$i?>"> <?php echo $UserCodeName_arr[$i][1] ?></label>
       </div>
      
       <?php } else{ ?>    
       <div class="checkbox_div">
-      <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" name="ForUSR[]" value="<?php echo $valueof; ?>">
+      <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" name="ForUSR[]" onchange="countchecked('assignbox','assign_li')" value="<?php echo $valueof; ?>">
       <label for="assignto-<?=$i?>"> <?php echo $UserCodeName_arr[$i][1] ?></label>
       </div>
       <?php  }  $i++; } ?>
@@ -879,7 +899,7 @@ $sql5 = mysqli_query($mysqli, $query5);
       </div>
       <div id="tag_li_div" class="hide div_1">
       <div class="reset_view_div" >
-      <a href="javascript:void()" onclick="selectallbox('tagbox')" class="resetview">Reset all</a>
+      <a href="javascript:void()" onclick="selectallbox('tagbox','Tag','tag_li')" class="resetview">Reset all</a>
       </div>
       <div>
        <?php  $i=0; 
@@ -889,13 +909,13 @@ $sql5 = mysqli_query($mysqli, $query5);
           
           if ($ForTaskTag == $valueof) {  ?>
             <div class="checkbox_div">
-              <input type="checkbox" class="tagbox" id="tags-<?=$i?>" name="Tag[]" value="<?php echo $valueof; ?>" checked>
+              <input type="checkbox" class="tagbox" id="tags-<?=$i?>" name="Tag[]" onchange="countchecked('Tag','tag_li')" value="<?php echo $valueof; ?>" checked>
               <label for="tags-<?=$i?>"> <?php echo $AllTasksTagList_arr[$i][0] ?></label>
             </div>
       
       <?php } else{ ?>    
       <div class="checkbox_div">
-              <input type="checkbox" class="tagbox" id="tags-<?=$i?>" name="Tag[]" value="<?php echo $valueof; ?>">
+              <input type="checkbox" class="tagbox" id="tags-<?=$i?>" name="Tag[]" onchange="countchecked('Tag','tag_li')" value="<?php echo $valueof; ?>">
               <label for="tags-<?=$i?>"> <?php echo $AllTasksTagList_arr[$i][0] ?></label>
             </div>
       <?php  }  $i++; } ?>
@@ -903,11 +923,11 @@ $sql5 = mysqli_query($mysqli, $query5);
       </div>
       <div id="view_li_div" class="hide div_1">
       <div class="reset_view_div" >
-      <a href="javascript:void()" onclick="selectallbox('completebox')" class="resetview">Reset all</a>
+      <a href="javascript:void()" onclick="selectallbox('completebox','ViewCompleted','view_li')" class="resetview">Reset all</a>
       </div>
       <div>
             <div class="checkbox_div">
-              <input type="checkbox" class="subbox" id="ViewCompleted" name="ViewCompleted" value="YES">
+              <input type="checkbox" class="subbox" id="ViewCompleted" name="ViewCompleted[]"  onchange="countchecked('ViewCompleted','view_li')" value="YES">
               <label for="ViewCompleted">&nbsp;&nbsp;View Completed &nbsp;</label>
           </div>
       </div>
@@ -931,8 +951,25 @@ $sql5 = mysqli_query($mysqli, $query5);
    
    }
    
-   function selectallbox(val){
+   function selectallbox(val,selectname,applyename){
          $("."+val).prop('checked',true);
+         if($('[name="'+selectname+'[]"]:checked').length!=0){
+            $("#select_"+applyename).html("("+$('[name="'+selectname+'[]"]:checked').length+")");
+         }
+         if($('[name="'+selectname+'[]"]:checked').length==0){
+            $("#select_"+applyename).html("");
+         }
+         
+
+   }
+
+   function countchecked(selectname,applyename){
+       if($('[name="'+selectname+'[]"]:checked').length!=0){
+            $("#select_"+applyename).html("("+$('[name="'+selectname+'[]"]:checked').length+")");
+         }
+         if($('[name="'+selectname+'[]"]:checked').length==0){
+            $("#select_"+applyename).html("");
+         }
    }
    
    function resetbox(){
@@ -956,5 +993,35 @@ $sql5 = mysqli_query($mysqli, $query5);
    function sendfilterdata(){
 
    }
+
+
+    function submitquickbox() {
+      var  x = $("#company_quickbox").val();
+      var  y = $("#task_name").val();
+      var z =$("#description").val();
+      var msg = 0;
+      if (x == "") {
+        alert("Please Enter Company to create the task");
+        document.getElementById("company_quickbox").style.borderColor = "red";    
+        msg = 1;    
+      }
+      if (y == "") {
+        alert("Please Enter Task Name");
+        document.getElementById("task_name").style.borderColor = "red"; 
+        msg = 1;       
+      }
+      
+       if(msg==0){
+            $.ajax({
+                method:"post",
+                data : { company:x,task:y,descr:z},
+                success: function( data ) {
+                    alert("task add successfully");
+                    window.location.reload();
+                }
+            });
+       }
+    }
+
 </script>
 <!-- wrapper -->
