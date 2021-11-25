@@ -344,8 +344,7 @@ $sql5 = mysqli_query($mysqli, $query5);
         font-size: 40px;
         margin-bottom: 22px;
       }
-      /* title-end */
-      /* p-one-start */
+      
       .wrapper .p-one p {
         color: #95959d;
         padding: 0 10px;
@@ -353,8 +352,6 @@ $sql5 = mysqli_query($mysqli, $query5);
         font-size: 14px;
         margin-bottom: 50px;
       }
-      /* p-one-end */
-      /* inp-email-start */
       .wrapper .inp {
         position: relative;
       }
@@ -436,8 +433,6 @@ $sql5 = mysqli_query($mysqli, $query5);
         color: #cfcfd3;
       }
 
-      /* inp-pass-end */
-      /* btn-start */
       .wrapper .button {
         display: flex;
         justify-content: center;
