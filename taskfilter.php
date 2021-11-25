@@ -197,8 +197,8 @@ $sql5 = mysqli_query($mysqli, $query5);
    border: 0.1em solid #f7d991;
    border-radius: 0.2em;
    display: inline-block;
-   width: 1em;
-   height: 1em;
+   width: 24px;
+   height: 24px;
    padding-left: 0.2em;
    padding-bottom: 0.3em;
    margin-right: 10px;
@@ -592,55 +592,6 @@ button.fr.btn-save {
 
 
 
-.new {
-  padding: 50px;
-}
-
-.form-group {
-  display: block;
-  margin-bottom: 15px;
-}
-
-.form-group input {
-  padding: 0;
-  height: initial;
-  width: initial;
-  margin-bottom: 0;
-  display: none;
-  cursor: pointer;
-}
-
-.form-group label {
-  position: relative;
-  cursor: pointer;
-}
-
-.form-group label:before {
-  content:'';
-  -webkit-appearance: none;
-  background-color: transparent;
-  border: 2px solid #0079bf;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
-  padding: 10px;
-  display: inline-block;
-  position: relative;
-  vertical-align: middle;
-  cursor: pointer;
-  margin-right: 5px;
-}
-
-.form-group input:checked + label:after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 2px;
-  left: 9px;
-  width: 6px;
-  height: 14px;
-  border: solid #0079bf;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
 
       /* down-end */
 
@@ -856,10 +807,7 @@ button.fr.btn-save {
       <div class="reset_view_div" >
       <a href="javascript:void()" onclick="selectallbox('companybox','Company','com_li')" class="resetview">Select all</a>
       </div>
-      <div class="form-group">
-      <input type="checkbox" id="html">
-      <label for="html">HTML</label>
-    </div>
+      
       <?php  $i=0; 
          while($i<$maxcompanycode)
          {   
