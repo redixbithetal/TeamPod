@@ -229,7 +229,7 @@ $sql5 = mysqli_query($mysqli, $query5);
    width: 100%;
    }
    #quickbox1{
-      width: 30%;
+      width: 576px;
    }
    .card {
   display: grid;
