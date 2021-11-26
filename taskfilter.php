@@ -365,7 +365,7 @@ $sql5 = mysqli_query($mysqli, $query5);
 
       .wrapper .inp select {
         border: 0;
-        border: 1px solid #e0e3ff;
+        border: 1px solid #e6e6e6;
         width: 100%;
         outline: none;
         height: 51px;
@@ -543,7 +543,7 @@ $sql5 = mysqli_query($mysqli, $query5);
       }
       input#task_name {
     border: 0;
-    border: 1px solid #e0e3ff;
+    border: 1px solid #e6e6e6;
     width: 100%;
     outline: none;
     height: 51px;
@@ -566,7 +566,7 @@ $sql5 = mysqli_query($mysqli, $query5);
       textarea {
     border: 0;
     resize: vertical;
-    border: 1px solid #e0e3ff;
+    border: 1px solid #e6e6e6;
     width: 100%;
     outline: none;
     height: 200px;
@@ -647,7 +647,13 @@ button.fr.btn-save {
                      </div>
                      <div class="inp" style="margin-top: 20px;">
                         <label class="description" for="description"> Description</label>
+<<<<<<< Updated upstream
                         <textarea name="descr" id="description" rows="15"></textarea>
+=======
+
+                        <textarea name="descr" id="description" rows="15" placeholder="Please Provide Task Detail"></textarea>
+
+>>>>>>> Stashed changes
                      </div>
                   </div>
                </article>
