@@ -646,14 +646,9 @@ button.fr.btn-save {
                         <input type="text" name="task" id="task_name"  >
                      </div>
                      <div class="inp" style="margin-top: 20px;">
-                        <label class="description" for="description"> Description</label>
-<<<<<<< Updated upstream
-                        <textarea name="descr" id="description" rows="15"></textarea>
-=======
-
                         <textarea name="descr" id="description" rows="15" placeholder="Please Provide Task Detail"></textarea>
 
->>>>>>> Stashed changes
+
                      </div>
                   </div>
                </article>
