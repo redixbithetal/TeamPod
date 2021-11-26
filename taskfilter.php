@@ -1017,11 +1017,7 @@ button.fr.btn-save {
        $("#select_view_li").html("");
    }
 
-   function sendfilterdata(){
-
-   }
-
-
+  
     function submitquickbox() {
       var  x = $("#company_quickbox").val();
       var  y = $("#task_name").val();
