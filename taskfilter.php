@@ -229,7 +229,7 @@ $sql5 = mysqli_query($mysqli, $query5);
    width: 100%;
    }
    #quickbox1{
-      width: 30%;
+      width: 576px;
    }
    .card {
   display: grid;
@@ -365,7 +365,7 @@ $sql5 = mysqli_query($mysqli, $query5);
 
       .wrapper .inp select {
         border: 0;
-        border: 1px solid #e6e6e6;
+        border: 1px solid #e0e3ff;
         width: 100%;
         outline: none;
         height: 51px;
@@ -543,7 +543,7 @@ $sql5 = mysqli_query($mysqli, $query5);
       }
       input#task_name {
     border: 0;
-    border: 1px solid #e6e6e6;
+    border: 1px solid #e0e3ff;
     width: 100%;
     outline: none;
     height: 51px;
@@ -566,7 +566,7 @@ $sql5 = mysqli_query($mysqli, $query5);
       textarea {
     border: 0;
     resize: vertical;
-    border: 1px solid #e6e6e6;
+    border: 1px solid #e0e3ff;
     width: 100%;
     outline: none;
     height: 200px;
@@ -646,9 +646,8 @@ button.fr.btn-save {
                         <input type="text" name="task" id="task_name"  >
                      </div>
                      <div class="inp" style="margin-top: 20px;">
+                        <label class="description" for="description"> Description</label>
                         <textarea name="descr" id="description" rows="15" placeholder="Please Provide Task Detail"></textarea>
-
-
                      </div>
                   </div>
                </article>
@@ -886,13 +885,13 @@ button.fr.btn-save {
           
           if ($ForRefUSR == $valueof) {  ?>
             <div class="checkbox_div">
-      <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" onchange="countchecked('assignbox','assign_li')" name="ForUSR[]" value="<?php echo $valueof; ?>" checked>
+      <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" onchange="countchecked('ForUSR','assign_li')" name="ForUSR[]" value="<?php echo $valueof; ?>" checked>
       <label for="assignto-<?=$i?>"> <?php echo $UserCodeName_arr[$i][1] ?></label>
       </div>
      
       <?php } else{ ?>    
       <div class="checkbox_div">
-      <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" name="ForUSR[]" onchange="countchecked('assignbox','assign_li')" value="<?php echo $valueof; ?>">
+      <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" name="ForUSR[]" onchange="countchecked('ForUSR','assign_li')" value="<?php echo $valueof; ?>">
       <label for="assignto-<?=$i?>"> <?php echo $UserCodeName_arr[$i][1] ?></label>
       </div>
       <?php  }  $i++; } ?>
@@ -989,6 +988,12 @@ button.fr.btn-save {
        $(".mainbox").prop('checked',false);
        $(".assignbox").prop('checked',false);
        $(".completebox").prop('checked',false);
+       $("#select_com_li").html("");
+       $("#select_main_li").html("");
+       $("#select_sub_li").html("");
+       $("#select_assign_li").html("");
+       $("#select_tag_li").html("");
+       $("#select_view_li").html("");
    }
 
    function sendfilterdata(){
