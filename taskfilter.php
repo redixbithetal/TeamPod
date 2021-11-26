@@ -371,6 +371,7 @@ $sql5 = mysqli_query($mysqli, $query5);
         height: 51px;
         padding: 0 20px;
         border-radius: 4px;
+
         background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20448%22%20enable-background%3D%22new%200%200%20256%20448%22%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E.arrow%7Bfill%3A%23424242%3B%7D%3C%2Fstyle%3E%3Cpath%20class%3D%22arrow%22%20d%3D%22M255.9%20168c0-4.2-1.6-7.9-4.8-11.2-3.2-3.2-6.9-4.8-11.2-4.8H16c-4.2%200-7.9%201.6-11.2%204.8S0%20163.8%200%20168c0%204.4%201.6%208.2%204.8%2011.4l112%20112c3.1%203.1%206.8%204.6%2011.2%204.6%204.4%200%208.2-1.5%2011.4-4.6l112-112c3-3.2%204.5-7%204.5-11.4z%22%2F%3E%3C%2Fsvg%3E%0A);
         background-position: right 10px center;
         background-repeat: no-repeat;
@@ -383,6 +384,19 @@ $sql5 = mysqli_query($mysqli, $query5);
         -moz-appearance: none;
         -webkit-appearance: none;
         appearance: none;
+
+            background-image: url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20448%22%20enable-background%3D%22new%200%200%20256%20448%22%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E.arrow%7Bfill%3A%23424242%3B%7D%3C%2Fstyle%3E%3Cpath%20class%3D%22arrow%22%20d%3D%22M255.9%20168c0-4.2-1.6-7.9-4.8-11.2-3.2-3.2-6.9-4.8-11.2-4.8H16c-4.2%200-7.9%201.6-11.2%204.8S0%20163.8%200%20168c0%204.4%201.6%208.2%204.8%2011.4l112%20112c3.1%203.1%206.8%204.6%2011.2%204.6%204.4%200%208.2-1.5%2011.4-4.6l112-112c3-3.2%204.5-7%204.5-11.4z%22%2F%3E%3C%2Fsvg%3E%0A);
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+    border-radius: 2px;
+    /* border: none; */
+    /* color: #ffffff; */
+    padding: 10px 30px 10px 10px;
+    outline: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
       }
       .wrapper .inp select:focus {
         border: 1px solid #e0e3ff;
@@ -647,7 +661,10 @@ button.fr.btn-save {
                      </div>
                      <div class="inp" style="margin-top: 20px;">
                         <label class="description" for="description"> Description</label>
+
                         <textarea name="descr" id="description" rows="15" placeholder="Please Provide Task Detail"></textarea>
+
+                        <textarea name="descr" id="description" rows="15"></textarea>
                      </div>
                   </div>
                </article>
@@ -886,12 +903,16 @@ button.fr.btn-save {
           if ($ForRefUSR == $valueof) {  ?>
             <div class="checkbox_div">
       <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" onchange="countchecked('ForUSR','assign_li')" name="ForUSR[]" value="<?php echo $valueof; ?>" checked>
+
+      <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" onchange="countchecked('assignbox','assign_li')" name="ForUSR[]" value="<?php echo $valueof; ?>" checked>
       <label for="assignto-<?=$i?>"> <?php echo $UserCodeName_arr[$i][1] ?></label>
       </div>
      
       <?php } else{ ?>    
       <div class="checkbox_div">
       <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" name="ForUSR[]" onchange="countchecked('ForUSR','assign_li')" value="<?php echo $valueof; ?>">
+
+      <input type="checkbox" class="assignbox" id="assignto-<?=$i?>" name="ForUSR[]" onchange="countchecked('assignbox','assign_li')" value="<?php echo $valueof; ?>">
       <label for="assignto-<?=$i?>"> <?php echo $UserCodeName_arr[$i][1] ?></label>
       </div>
       <?php  }  $i++; } ?>
